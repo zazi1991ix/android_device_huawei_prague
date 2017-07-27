@@ -24,14 +24,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit from kiwi device
-$(call inherit-product, device/honor/berlin/device.mk)
+$(call inherit-product, device/huawei/prague/device.mk)
 
 # Vendor
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := full_berlin
-PRODUCT_DEVICE := berlin
-PRODUCT_BRAND := HONOR
+PRODUCT_NAME := full_prague
+PRODUCT_DEVICE := prague
+PRODUCT_BRAND := PRA-LX1
 PRODUCT_MANUFACTURER := HUAWEI
-PRODUCT_MODEL := HONOR-6X
+PRODUCT_MODEL := PRA-LX1

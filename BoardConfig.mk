@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/honor/berlin
+LOCAL_PATH := device/honor/prague
 
 # Architecture
 TARGET_ARCH := arm64
@@ -44,7 +44,7 @@ ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := hi6250,Berlin,berlin,HWBLN-H,BLN-L21,BLN-L22,BLN-L24
+TARGET_OTA_ASSERT_DEVICE := hi6250,prague
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -124,7 +124,7 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.hi6250
 
 # RIL
 TARGET_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
-BOARD_RIL_CLASS := ../../../device/honor/berlin/ril
+BOARD_RIL_CLASS := ../../../device/huawei/prague/ril
 PROTOBUF_SUPPORTED := true
 TARGET_RIL_VARIANT := proprietary
 
@@ -142,7 +142,7 @@ TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_berlin.cpp
 
 # Sepolicy
 BOARD_SEPOLICY_DIRS += \
-	device/honor/berlin/sepolicy
+	device/huawei/prague/sepolicy
 
 # Wifi
 WPA_SUPPLICANT_VERSION          := VER_0_8_X
@@ -151,4 +151,4 @@ BOARD_HOSTAPD_DRIVER 		:= NL80211
 CONFIG_DRIVER_NL80211		:= y
 
 # inherit from the proprietary version
--include vendor/honor/berlin/BoardConfigVendor.mk
+-include vendor/huawei/prague/BoardConfigVendor.mk
