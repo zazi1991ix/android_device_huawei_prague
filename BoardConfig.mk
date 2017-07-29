@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/honor/prague
+LOCAL_PATH := device/huawei/prague
 
 # Architecture
 TARGET_ARCH := arm64
@@ -94,12 +94,8 @@ BOARD_KERNEL_BASE := 0x00478000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := loglevel=4 coherent_pool=512K page_tracker=on slub_min_objects=12 androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x07b88000 --tags_offset 0x07588000
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_KERNEL_HEADER_ARCH := arm64
 
-TARGET_KERNEL_SOURCE := kernel/honor/berlin
-TARGET_KERNEL_CONFIG := hisi_6250_defconfig
+TARGET_PREBUILT_KERNEL := device/huawei/prague/Image
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -136,9 +132,9 @@ BOARD_NEEDS_VENDORIMAGE_SYMLINK := true
 TARGET_COPY_OUT_VENDOR := system
 
 # Vendor Init
-TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_hi6250
-TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_berlin.cpp
+#TARGET_UNIFIED_DEVICE := true
+#TARGET_INIT_VENDOR_LIB := libinit_hi6250
+#TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_berlin.cpp
 
 # Sepolicy
 BOARD_SEPOLICY_DIRS += \
