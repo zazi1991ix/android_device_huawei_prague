@@ -73,11 +73,6 @@ TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := libcamera_parameters_ext
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BACKLIGHT_PATH := /sys/class/leds/lcd_backlight0/brightness
 
-# CMHW
-BOARD_HARDWARE_CLASS := \
-    $(LOCAL_PATH)/cmhw \
-    hardware/cyanogen/cmhw
-
 # Display
 USE_OPENGL_RENDERER := true
 TARGET_HARDWARE_3D := true
@@ -130,11 +125,6 @@ ENABLE_WEBGL := true
 # Vendor
 BOARD_NEEDS_VENDORIMAGE_SYMLINK := true
 TARGET_COPY_OUT_VENDOR := system
-
-# Vendor Init
-#TARGET_UNIFIED_DEVICE := true
-#TARGET_INIT_VENDOR_LIB := libinit_hi6250
-#TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_berlin.cpp
 
 # Sepolicy
 BOARD_SEPOLICY_DIRS += \
