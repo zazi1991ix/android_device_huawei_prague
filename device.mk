@@ -52,6 +52,8 @@ PRODUCT_COPY_FILES += \
 
 # Dalvik
 PRODUCT_TAGS += dalvik.gc.type-precise
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 # Fingerprint
 PRODUCT_COPY_FILES += \
