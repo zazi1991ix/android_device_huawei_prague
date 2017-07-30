@@ -123,8 +123,8 @@ PRODUCT_PACKAGES += \
     Snap
 
 # Doze
-PRODUCT_PACKAGES += \
-    HisiDoze
+#PRODUCT_PACKAGES += \
+#    HisiDoze
 
 # USB
 PRODUCT_PACKAGES += \
