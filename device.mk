@@ -14,26 +14,77 @@
 # limitations under the License.
 #
 
+# AAPT
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
+# Audio
+PRODUCT_PACKAGES += \
+    	audio.a2dp.default \
+    	audio.primary.default \
+    	audio.r_submix.default \
+    	audio.usb.default \
+    	libaudioroute \
+    	libaudioutils \
+    	libtinyalsa \
+    	tinycap \
+    	tinymix \
+    	tinypcminfo
+    	tinyplay \
+
+# Blobs
 $(call inherit-product-if-exists, vendor/huawei/prague/prague-vendor.mk)
 
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+# Camera
+PRODUCT_PACKAGES += \
+    	Snap
 
-# Media configuration
+# Codecs
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/prebuilts/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/prebuilts/media_profiles.xml:system/etc/media_profiles.xml
+    	$(LOCAL_PATH)/prebuilts/media_codecs.xml:system/etc/media_codecs.xml \
+    	$(LOCAL_PATH)/prebuilts/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+    	$(LOCAL_PATH)/prebuilts/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_COPY_FILES += \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+    	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+
+# Dalvik
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+# Fingerprint
+PRODUCT_COPY_FILES += \
+    	frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
 
 # GPS
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/clatd.conf:system/etc/clatd.conf \
-    $(LOCAL_PATH)/prebuilts/geoloc.conf:system/etc/geoloc.conf
+    	$(LOCAL_PATH)/prebuilts/clatd.conf:system/etc/clatd.conf \
+    	$(LOCAL_PATH)/prebuilts/geoloc.conf:system/etc/geoloc.conf
+
+# Huawei P8 Lite 2017 Components
+PRODUCT_PACKAGES += \
+    	libshim_stagefright
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    	persist.sys.usb.config=manufacture,adb \
+    	ro.build.subproduct=F2FS \
+    	ro.magic.api.version=0.1 \
+    	sys.usb.configfs=1 \
+    	sys.usb.controller=hisi-usb-otg
+
+# Kernel
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+LOCAL_KERNEL := device/huawei/prague/Image
+else
+LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
+
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -65,98 +116,41 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.app_widgets.xml:system/etc/permissions/android.software.app_widgets.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-# Screen density
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
-
-PRODUCT_TAGS += dalvik.gc.type-precise
-
-# Audio
-PRODUCT_PACKAGES += \
-    audio.primary.default \
-    audio.a2dp.default \
-    audio.usb.default \
-    audio.r_submix.default \
-    libaudioutils \
-    libaudioroute \
-    libtinyalsa \
-    tinyplay \
-    tinycap \
-    tinymix \
-    tinypcminfo
-
-# Fingerprint sensor
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
-
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.hi6250 \
-    fstab.zram1280m \
-    fstab.zram1536m \
-    init.charger.rc \
-    init.chip.charger.rc \
-    init.chip.usb.rc \
-    init.hi6250.power.rc \
-    init.hi6250.rc \
-    init.hi6250.usb.configfs.rc \
-    init.hi6250.usb.rc \
-    ueventd.hi6250.rc
-
-# LIBShim
-PRODUCT_PACKAGES += \
-    libshim_stagefright
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.build.subproduct=F2FS \
-    ro.magic.api.version=0.1 \
-    persist.sys.usb.config=manufacture,adb \
-    sys.usb.configfs=1 \
-    sys.usb.controller=hisi-usb-otg
-
-# Power HAL
-PRODUCT_PACKAGES += \
-    power.hi6250
-
-# SNAP Camera
-PRODUCT_PACKAGES += \
-    Snap
-
-# Doze
-#PRODUCT_PACKAGES += \
-#    HisiDoze
+    	fstab.hi6250 \
+    	fstab.zram1280m \
+    	fstab.zram1536m \
+    	init.charger.rc \
+    	init.chip.charger.rc \
+    	init.chip.usb.rc \
+    	init.hi6250.power.rc \
+    	init.hi6250.rc \
+    	init.hi6250.usb.configfs.rc \
+    	init.hi6250.usb.rc \
+    	ueventd.hi6250.rc
 
 # USB
 PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+    	com.android.future.usb.accessory
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/hostapd_hisi.conf:system/etc/wifi/hostapd_hisi.conf \
-    $(LOCAL_PATH)/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
-    $(LOCAL_PATH)/wifi/p2p_supplicant_hisi.conf:system/etc/wifi/p2p_supplicant_hisi.conf \
-    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant_hisi.conf:system/etc/wifi/wpa_supplicant_hisi.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    	$(LOCAL_PATH)/wifi/hostapd_hisi.conf:system/etc/wifi/hostapd_hisi.conf \
+    	$(LOCAL_PATH)/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
+    	$(LOCAL_PATH)/wifi/p2p_supplicant_hisi.conf:system/etc/wifi/p2p_supplicant_hisi.conf \
+    	$(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    	$(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    	$(LOCAL_PATH)/wifi/wpa_supplicant_hisi.conf:system/etc/wifi/wpa_supplicant_hisi.conf \
+    	$(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 PRODUCT_PACKAGES += \
-    libwpa_client \
-    hostapd \
-    wpa_supplicant
+    	hostapd \
+    	libwpa_client \
+   	wpa_supplicant
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=8m \
-    dalvik.vm.heapgrowthlimit=384m \
-    dalvik.vm.heapsize=512m \
-    dalvik.vm.heaptargetutilization=0.75
-
-# Kernel
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/huawei/prague/Image
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+    	dalvik.vm.heapgrowthlimit=384m \
+    	dalvik.vm.heapsize=512m \
+    	dalvik.vm.heaptargetutilization=0.75 \
+    	dalvik.vm.heapstartsize=8m \
