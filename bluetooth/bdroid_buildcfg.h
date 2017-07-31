@@ -17,7 +17,7 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "Honor 6X"
+#define BTM_DEF_LOCAL_NAME   "Huawei P8 Lite 2017"
 
 #define BLE_INCLUDED TRUE
 
