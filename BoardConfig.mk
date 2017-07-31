@@ -66,8 +66,8 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_NO_RPC := true
 
 # Camera
+USE_CAMERA_STUB := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := libcamera_parameters_ext
 
 # Charger 
 BACKLIGHT_PATH := /sys/class/leds/lcd_backlight0/brightness
