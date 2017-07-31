@@ -64,6 +64,12 @@ PRODUCT_COPY_FILES += \
     	$(LOCAL_PATH)/prebuilts/clatd.conf:system/etc/clatd.conf \
     	$(LOCAL_PATH)/prebuilts/geoloc.conf:system/etc/geoloc.conf
 
+# Graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    	debug.hwui.render_dirty_regions=false \
+    	persist.sys.strictmode.disable=1 \
+    	persist.sys.use_dithering=2 \
+
 # Huawei P8 Lite 2017 Components
 PRODUCT_PACKAGES += \
     	libshim_stagefright
