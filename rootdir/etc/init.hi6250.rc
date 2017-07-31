@@ -321,6 +321,14 @@ on post-fs
     chown system system /proc/uid_iostats/remove_uid_list
     chmod 0660 /proc/uid_iostats/remove_uid_list
 
+    # I've just manage to fix CPU by adding the following flags under post-fs
+    # credits is for me @Haky 86 on xda-developers and @Hak86 on github.
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-4
+
+    write /dev/cpuset/foreground/boost/cpus 0-7
+    write /dev/cpuset/foreground/cpus 0-7
+
 on post-fs-data
     start teecd
 
