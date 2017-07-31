@@ -81,6 +81,20 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     	sys.usb.configfs=1 \
     	sys.usb.controller=hisi-usb-otg
 
+# NFC
+PRODUCT_PACKAGES += \
+    	com.android.nfc_extras \
+    	NfcNci \
+    	nfc_nci.pn54x.default \
+    	Tag \
+
+PRODUCT_COPY_FILES += \
+    	frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+    	frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+    	frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    	frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
+    	packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
