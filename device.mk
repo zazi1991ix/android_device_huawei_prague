@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+# Android Open Source Project Common Stuff
+PRODUCT_PACKAGES += \
+	Launcher3
+
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
