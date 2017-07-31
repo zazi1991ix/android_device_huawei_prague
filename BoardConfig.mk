@@ -93,8 +93,6 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := loglevel=4 coherent_pool=512K page_tracker=on slub_min_objects=12 androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x07b88000 --tags_offset 0x07588000
 
-TARGET_PREBUILT_KERNEL := device/huawei/prague/Image
-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 

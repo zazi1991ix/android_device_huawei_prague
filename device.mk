@@ -75,16 +75,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     	sys.usb.configfs=1 \
     	sys.usb.controller=hisi-usb-otg
 
-# Kernel
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/huawei/prague/Image
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -119,7 +109,6 @@ PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
 	frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
-
 
 # Ramdisk
 PRODUCT_PACKAGES += \
