@@ -76,6 +76,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Huawei P8 Lite 2017 Components
 PRODUCT_PACKAGES += \
+	hwcomposer.hi6250 \
     	libshim_stagefright
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -97,7 +98,6 @@ PRODUCT_COPY_FILES += \
     	frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     	frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     	frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
-    	packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
