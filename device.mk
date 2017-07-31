@@ -29,7 +29,7 @@ PRODUCT_PACKAGES += \
     	libtinyalsa \
     	tinycap \
     	tinymix \
-    	tinypcminfo
+    	tinypcminfo \
     	tinyplay \
 
 # Blobs
