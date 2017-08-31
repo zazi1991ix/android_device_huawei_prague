@@ -1,4 +1,4 @@
-@Copyright 2017 - The OpenKirin Project
+@Copyright 2017 - The Android Open Source Project
 
 Huawei P8 Lite 2017 detailed specifications:
 ============================================
