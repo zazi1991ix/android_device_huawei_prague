@@ -23,24 +23,20 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+# Android Open Source Project Common Stuff
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
-
-# Inherit from kiwi device
+# Device
 $(call inherit-product, device/huawei/prague/device.mk)
 
-# Vendor
-PRODUCT_RESTRICT_VENDOR_FILES := false
-
-# Device identifier. This must come after all inclusions
 PRODUCT_NAME := full_prague
 PRODUCT_DEVICE := prague
 PRODUCT_BRAND := PRA-LX1
 PRODUCT_MANUFACTURER := HUAWEI
 PRODUCT_MODEL := PRA-LX1
+
+# Vendor
+PRODUCT_RESTRICT_VENDOR_FILES := false
