@@ -37,7 +37,6 @@ ro.config.dsds_mode=umts_gsm
 persist.radio.modem.cap=09A9C
 ro.config.hw_dsda=false
 ro.config.hw_save_pin=true
-persist.radio.multisim.config=dsds
 ro.config.modem_number=2
 rild.rild1_ready_to_start=false
 ro.config.client_number=2
@@ -48,7 +47,6 @@ rild.libargs=-m modem0
 ro.telephony.default_network=9
 ro.config.is_start_commril=true
 ro.config.default_commril_mode=ULG_MODE
-persist.dsds.enabled=true
 ro.multi.rild=false
 
 ro.telephony.ril_class=HwHisiRIL
