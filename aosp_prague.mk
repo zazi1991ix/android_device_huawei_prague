@@ -26,7 +26,7 @@
 # Device
 $(call inherit-product, device/huawei/prague/full_prague.mk)
 
-PRODUCT_NAME := lineage_prague
+PRODUCT_NAME := aosp_prague
 BOARD_VENDOR := huawei
 
 PRODUCT_GMS_CLIENTID_BASE := android-huawei
@@ -34,6 +34,3 @@ PRODUCT_GMS_CLIENTID_BASE := android-huawei
 # Display
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
-
-# LineageOS 14.1
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
